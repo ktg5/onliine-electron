@@ -6,11 +6,13 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "unzip": "node unzip.js"
   },
   "author": "ktg5",
   "license": "GNU AGPLv3",
   "dependencies": {
+    "adm-zip": "^0.5.14",
     "electron-forge": "^5.2.4",
     "electron-squirrel-startup": "^1.0.1",
     "express": "^4.19.2"

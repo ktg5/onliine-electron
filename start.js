@@ -3,7 +3,16 @@ const path = require('path');
 const fs = require('fs');
 const config = require('./config.json');
 const configProd = require('./config.prod.json');
+const { env } = process;
 
+
+// Check to see what mode Electron is in
+var isEnvSet = 'ELECTRON_IS_DEV' in env;
+var getFromEnv = Number.parseInt(env.ELECTRON_IS_DEV, 10) === 1;
+var isDev = isEnvSet ? getFromEnv : !electron.app.isPackaged;
+
+
+// We'll be using this later...
 var browser;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -53,15 +62,9 @@ const createWindow = () => {
     // Load the index.html of the app.
     // browser.loadURL(`file://${__dirname}/index.html`);
 
-    // Loading the site
-    /// Check if Electron is running in development or packaged mode.
-    let {env} = process; // eslint-disable-line n/prefer-global/process
-    let isEnvSet = 'ELECTRON_IS_DEV' in env;
-    let getFromEnv = Number.parseInt(env.ELECTRON_IS_DEV, 10) === 1;
-    let isDev = isEnvSet ? getFromEnv : !electron.app.isPackaged;
-    /// Change which config to use depending on "isDev"
+    // Change which config to use depending on "isDev"
     let configToUse = isDev ? config : configProd;
-    /// Load the index.html of the app.
+    // Load the index.html of the app using the config selected above.
     browser.loadURL(configToUse.URL);
 };
 

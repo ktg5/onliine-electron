@@ -45,10 +45,9 @@ jobs:
       - name: Run the build node script
         run: npm run make
 
-      # Unzip stuffs.
-      - name: Unzip build
-        working-directory: ${{ github.workspace }}
-        run: unzip -qq out/make/zip/win32/x64/${{ env.PACKAGE_NAME }}-win32-x64-${{ env.PACKAGE_VERSION }} -d onliine-win32-x64
+      # Unzip stuffs (would use the "unzip" command but I'm just getting "exit code 1", very helpful).
+      - name: Run the unzip script
+        run: npm run unzip
 
       # Upload the build to the "Artifacts" tab on this action's page.
       - name: Upload the build to the "Artifacts" tab
