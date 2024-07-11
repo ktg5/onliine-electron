@@ -45,9 +45,14 @@ jobs:
       - name: Run the build node script
         run: npm run make
 
+      # Unzip stuffs.
+      - name: Unzip build
+        working-directory: ${{ github.workspace }}
+        run: unzip -qq out/make/zip/win32/x64/${{ env.PACKAGE_NAME }}-win32-x64-${{ env.PACKAGE_VERSION }} -d onliine-win32-x64;
+
       # Upload the build to the "Artifacts" tab on this action's page.
-      - name: Upload the Win32 x64 ZIP build to the "Artifacts" tab
+      - name: Upload the build to the "Artifacts" tab
         uses: actions/upload-artifact@v4.3.4
         with:
           name: ${{ env.PACKAGE_NAME }}-win32-x64
-          path: ${{ github.workspace }}/out/make/zip/win32/x64/${{ env.PACKAGE_NAME }}-win32-x64-${{ env.PACKAGE_VERSION }}.zip
+          path: ${{ github.workspace }}/onliine-win32-x64
