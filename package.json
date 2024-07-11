@@ -1,7 +1,7 @@
 {
   "name": "onliine",
   "version": "0.0.1",
-  "description": "Wii System simulator based on the latest version 4.3E by Nintendo (please don't sue me)",
+  "description": "A simple Electron client for the Onliine website",
   "main": "start.js",
   "scripts": {
     "start": "electron-forge start",
@@ -10,23 +10,13 @@
     "unzip": "node unzip.js"
   },
   "author": "ktg5",
-  "license": "GNU AGPLv3",
-  "dependencies": {
-    "adm-zip": "^0.5.14",
-    "electron-forge": "^2.0.0",
-    "electron-squirrel-startup": "^1.0.1",
-    "express": "^4.19.2"
-  },
+  "license": "AGPL-3.0-or-later",
   "devDependencies": {
     "@electron-forge/cli": "^7.4.0",
-    "@electron-forge/maker-squirrel": "^7.4.0",
     "@electron-forge/maker-zip": "^7.4.0",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
-    "@electron-forge/plugin-fuses": "^7.4.0",
-    "@electron/fuses": "^1.8.0",
-    "electron": "30.0.6",
-    "electron-forge": "^2.0.0",
-    "electron-prebuilt-compile": "^2.0.16",
-    "electron-squirrel-startup": "^1.0.1"
+    "electron": "^31.2.0"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.14"
   }
 }
