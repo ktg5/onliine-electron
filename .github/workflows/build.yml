@@ -29,10 +29,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Get the current Node package version.
-      - name: Get current package version
-        id: package_version
-        uses: KageKirin/get-node-package-version@v0
+      # Get the Node package json file.
+      - name: Package.json info
+        uses: rexdefuror/read-package-json@v1.0.5
 
       # Setup Node.js environment.
       - name: Setup Node.js environment
@@ -50,5 +49,5 @@ jobs:
       - name: Upload the Win32 x64 ZIP build to the "Artifacts" tab
         uses: actions/upload-artifact@v4.3.4
         with:
-          name: onliine-win32-x64
-          path: ${{ github.workspace }}/out/make/zip/win32/x64/onliine-win32-x64-${{ steps.get_version.outputs.current-version }}.zip
+          name: ${{ env.PACKAGE_NAME }}-win32-x64
+          path: ${{ github.workspace }}/out/make/zip/win32/x64/${{ env.PACKAGE_NAME }}-win32-x64-${{ env.PACKAGE_VERSION }}.zip
