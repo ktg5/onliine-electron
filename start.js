@@ -16,9 +16,9 @@ var isDev = isEnvSet ? getFromEnv : !electron.app.isPackaged;
 var browser;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
-if (require('electron-squirrel-startup')) {
-    app.quit();
-}
+// if (require('electron-squirrel-startup')) {
+//     app.quit();
+// }
 
 // Create the main window.
 const createWindow = () => {

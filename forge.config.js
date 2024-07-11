@@ -3,7 +3,8 @@ module.exports = {
         icon: "assets/icon",
         ignore: [
             ".gitignore",
-            ".github"
+            ".github",
+            "node_modules",
         ]
     },
     makers: [
