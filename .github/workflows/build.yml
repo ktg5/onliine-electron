@@ -43,7 +43,7 @@ jobs:
 
       # Run the build node script.
       - name: Run the build node script
-        run: npm run package
+        run: npm run make
 
       # Upload the build to the "Artifacts" tab on this action's page.
       - name: Upload the Win32 x64 ZIP build to the "Artifacts" tab
