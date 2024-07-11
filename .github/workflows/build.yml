@@ -1,6 +1,6 @@
 # This is the thingy for GitHub to make it do some stuff.
 # Aka, "build" and Zip up the versions we want to ship.
-name: Onliine Windows build-n-pack
+name: Onliine build-n-pack
 
 # Controls when the workflow will run
 on:
@@ -15,8 +15,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  # Windows build
+  win-build:
     # The OS that the job will run on
     runs-on: windows-latest
     # If we want to add support to other OSes (possible future feature)
@@ -48,7 +48,7 @@ jobs:
       # Unzip stuffs.
       - name: Unzip build
         working-directory: ${{ github.workspace }}
-        run: unzip -qq out/make/zip/win32/x64/${{ env.PACKAGE_NAME }}-win32-x64-${{ env.PACKAGE_VERSION }} -d onliine-win32-x64;
+        run: unzip -qq out/make/zip/win32/x64/${{ env.PACKAGE_NAME }}-win32-x64-${{ env.PACKAGE_VERSION }} -d onliine-win32-x64
 
       # Upload the build to the "Artifacts" tab on this action's page.
       - name: Upload the build to the "Artifacts" tab
