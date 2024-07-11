@@ -27,7 +27,8 @@ jobs:
     steps:
       # Get the current Node package version.
       - name: Get current package version
-        uses: martinbeentjes/npm-get-version-action@v1.3.1
+        id: package_version
+        uses: KageKirin/get-node-package-version@v0
             
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
