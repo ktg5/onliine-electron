@@ -1,6 +1,6 @@
 {
   "name": "onliine",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple Electron client for the Onliine website",
   "main": "start.js",
   "scripts": {
